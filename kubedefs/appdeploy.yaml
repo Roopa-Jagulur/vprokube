@@ -21,5 +21,3 @@ spec:
           ports:
             - name: vproapp-port
               containerPort: 8080
-
-      
