@@ -29,15 +29,6 @@ spec:
                 secretKeyRef:
                   name: app-secret
                   key: db-pass
-
-      initContainers:
-        - name: busybox
-          image: busybox:latest
-          args: ["rm", "-rf", "/var/lib/mysql/lost+found"]
-          volumeMounts:
-            - name: vpro-db-data
-              mountPath: /var/lib/mysql
-
       volumes:
         - name: vpro-db-data
           persistentVolumeClaim:
