@@ -17,18 +17,18 @@ spec:
       containers:
       - name: vprodb
         image: roopajagulur/rjinfo-vprofiledb
-        volumeMounts:
-        - mountPath: /var/lib/mysql
-          name: vpro-db-data
+         volumeMounts:
+         - mountPath: /var/lib/mysql
+           name: vpro-db-data
         ports:
         - name: vprodb-port
           containerPort: 3306
         env:
-         - name: MYSQL_ROOT_PASSWORD
-           valueFrom:
-             secretKeyRef:
-               name: app-secret
-               key: db-pass
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: app-secret
+              key: db-pass
       volumes:
         - name: vpro-db-data
           persistentVolumeClaim:
